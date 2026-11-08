@@ -12,6 +12,13 @@ class TestSearch(unittest.TestCase):
         results = search_by_title(dvds, "Star")
         self.assertEqual(len(results), 1)
         self.assertEqual(results[0].title, "Star Wars")
+        
+    def test_search_by_title_case_insensitive(self):
+       dvds = [DigitalVideoDisc("The Lion King")]
+       results = search_by_title(dvds, "lion")
+       self.assertEqual(len(results), 1)
+       self.assertEqual(results[0].title, "The Lion King")
+
 
     def test_search_by_category_found(self):
         dvds = [
