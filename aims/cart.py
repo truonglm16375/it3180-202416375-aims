@@ -44,3 +44,11 @@ class Cart:
         total = self.total_cost()
         return total * (100 - percent) / 100
     
+    def sort_by_title(self):
+        """Sắp xếp các đĩa trong giỏ hàng theo tên (thứ tự bảng chữ cái)."""
+        self.items.sort(key=lambda dvd: dvd.title)
+
+    def sort_by_cost(self):
+        """Sắp xếp các đĩa trong giỏ hàng theo giá giảm dần."""
+        self.items.sort(key=lambda dvd: dvd.cost, reverse=True)
+    
