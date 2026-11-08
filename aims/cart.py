@@ -6,7 +6,7 @@ class Cart:
 
     def __init__(self):
         self.items = []
-
+    
     def add_dvd(self, dvd):
         if len(self.items) >= MAX_NUMBERS_ORDERED:
             print("The cart is almost full")
@@ -38,3 +38,6 @@ class Cart:
         print(f"Total cost: {self.total_cost():.2f} $")
         print("***************************************************")
 
+    def total_cost_with_discount(self, percent):
+        total = self.total_cost()
+        return total * percent / 100      # lỗi: đây là số tiền giảm, không phải tổng sau giảm
