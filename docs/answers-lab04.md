@@ -12,3 +12,8 @@
 - Đối với nhánh `release`, Release Flow cắt nhánh này từ `master` và giữ lại làm dòng bảo trì độc lập mà không merge ngược về. Trong khi đó, GitFlow cắt `release` từ `develop` và khi hoàn thành sẽ merge đồng thời vào cả `main` lẫn `develop`.
 - Khi xử lý lỗi khẩn cấp (hotfix), Release Flow tạo hotfix từ `release/*` rồi áp dụng thay đổi sang cả `release` lẫn `master` bằng thao tác cherry-pick. Ngược lại, GitFlow lại tạo hotfix từ `main` rồi thực hiện merge vào hai nhánh `main` và `develop`.
 - Chính cơ chế cherry-pick này giúp Release Flow giữ cho lịch sử của nhánh `master` luôn gọn gàng, loại bỏ các commit đặc thù của bản `release` và tránh được tình trạng xuất hiện quá nhiều commit merge hai chiều như trên GitFlow. Mô hình Release Flow này rất tối ưu cho các bài toán nộp bài theo tuần hoặc khi cần quản lý nhiều bản chạy song song.
+
+### Câu 3 (tr. 52). Vì sao lên 1.0.0 mà không phải 0.4.0?
+- Theo SemVer, 0.y.z là giai đoạn phát triển ban đầu: chưa ổn định, bất cứ thứ gì cũng có thể đổi. Lab 01–03 là các bản nháp nên đặt v0.1.0…v0.3.0.
+- 1.0.0 đánh dấu bản phát hành chính thức đầu tiên: có CHANGELOG, có test, nhánh release được bảo vệ, có GitHub Release; từ đây quy tắc tương thích có hiệu lực.
+- Sau đó: sửa lỗi → PATCH (1.0.1), thêm tính năng tương thích → MINOR (1.1.0), phá vỡ tương thích → MAJOR (2.0.0) (tr. 46).
