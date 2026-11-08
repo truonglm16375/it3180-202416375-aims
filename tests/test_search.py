@@ -1,6 +1,6 @@
 import unittest
 from aims.dvd import DigitalVideoDisc
-from aims.search import search_by_title
+from aims.search import search_by_title, search_by_category
 
 class TestSearch(unittest.TestCase):
     def test_search_by_title_found(self):
